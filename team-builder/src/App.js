@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 // import './App.css';
 
 import data from './data';
@@ -18,12 +18,18 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const StyledH1 = styled.h1`
+  color: white;
+  margin: 20px;
+  text-align: center;
+`;
+
 function App() {
   const [players, setPlayer] = useState(data);
   return (
     <div className="App">
       <GlobalStyle />
-      <h1>1996-1997 Stanley Cup Champion Detroit Red Wings</h1>
+      <StyledH1>1996-1997 Stanley Cup Champion Detroit Red Wings</StyledH1>
       <Form />
       <Team players={players} />
     </div>
