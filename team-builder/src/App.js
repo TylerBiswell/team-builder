@@ -25,12 +25,17 @@ const StyledH1 = styled.h1`
 `;
 
 function App() {
-  const [players, setPlayer] = useState(data);
+  const [players, setPlayers] = useState(data);
+
+  const addNewPlayer = player => {
+    setPlayers([ ...players, player ]);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
       <StyledH1>1996-1997 Stanley Cup Champion Detroit Red Wings</StyledH1>
-      <Form />
+      <Form addNewPlayer={addNewPlayer} />
       <Team players={players} />
     </div>
   );
