@@ -34,23 +34,16 @@ function App() {
 
   const selectPlayer = (player) => {
     setMemberToEdit(player);
-        // console.log(player);
   };
 
   const editMember = (player) => {
-    console.log(player);
-    console.log(players);
     const newArray = []
     players.map(element => {
       if (element.id === player.id) {
-        console.log(player.id);
-        console.log(element);
         element = { ...player };
-        console.log(element);
       }
       newArray.push(element);
     });
-    console.log(newArray)
      setPlayers(newArray);
   };
 
