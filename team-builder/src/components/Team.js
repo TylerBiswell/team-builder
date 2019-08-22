@@ -49,7 +49,7 @@ export default function Team(props) {
               <h3>#{player.number}</h3>
               <h4>{player.name}</h4>
               <p>{player.position}</p>
-              <button>Edit player</button>
+              <button onClick={() => props.editPlayer(player)}>Edit player</button>
             </PlayerCard>
           )
         })}

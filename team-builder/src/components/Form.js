@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import StyledH2 from './StyledH2';
@@ -6,7 +6,7 @@ import StyledH2 from './StyledH2';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width 50%;
+  width 30%;
   margin: 20px auto;
   label {
     color: white;
@@ -36,6 +36,10 @@ export default function Form(props) {
     props.addNewPlayer(newPlayer);
     setPlayer({ name: '', number: '', position: ''});
   };
+
+  useEffect(() => {
+    setPlayer({ name: props.memberToEdit.name, number: props.memberToEdit.number, position: props.memberToEdit.position, id: Date.now() })
+  }, [props.memberToEdit]);
 
   return (
     <div>
