@@ -33,7 +33,6 @@ export default function Form(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    // console.log(props.memberToEdit);
     const isEmpty = obj => {
         for (let key in obj) {
           if (obj.hasOwnProperty(key))
@@ -42,15 +41,11 @@ export default function Form(props) {
         return true;
       }
   
-      // console.log(isEmpty(props.memberToEdit));
       if (!isEmpty(props.memberToEdit)) {
-        // console.log('edit');
         const playerToEdit = { ...player, id: props.memberToEdit.id };
-        // console.log(playerToEdit);
         props.editMember(playerToEdit);
-        // props.setMemberToEdit({});
+        props.setMemberToEdit({});
       } else {
-        // console.log('new');
         const newPlayer = { ...player, id: Date.now() };
         props.addNewPlayer(newPlayer);
       }
