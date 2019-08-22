@@ -26,6 +26,7 @@ const StyledH1 = styled.h1`
 
 function App() {
   const [players, setPlayers] = useState(data);
+  const [memberToEdit, setMemberToEdit] = useState();
 
   const addNewPlayer = player => {
     setPlayers([ ...players, player ]);

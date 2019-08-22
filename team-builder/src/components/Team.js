@@ -7,15 +7,28 @@ import StyledH2 from './StyledH2';
 const PlayerCard = styled.div`
   background-color: white;
   margin: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  width: 175px;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
   h3 {
-    font-size: 22px;
+    font-size: 28px;
     color: #C8102E;
   }
   h4 {
     font-size: 18px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #C8102E;
+  }
+  p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  button {
+    width: 50%;
+    margin: 20px 0 5px 0;
+    align-self: center;
   }
 `;
 
@@ -35,7 +48,8 @@ export default function Team(props) {
             <PlayerCard key={player.number}>
               <h3>#{player.number}</h3>
               <h4>{player.name}</h4>
-              <h4>{player.position}</h4>
+              <p>{player.position}</p>
+              <button>Edit player</button>
             </PlayerCard>
           )
         })}
