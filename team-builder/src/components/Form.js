@@ -32,13 +32,33 @@ export default function Form(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newPlayer = { ...player, id: Date.now() };
-    props.addNewPlayer(newPlayer);
+
+    // console.log(props.memberToEdit);
+    const isEmpty = obj => {
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key))
+            return false;
+        }
+        return true;
+      }
+  
+      // console.log(isEmpty(props.memberToEdit));
+      if (!isEmpty(props.memberToEdit)) {
+        // console.log('edit');
+        const playerToEdit = { ...player, id: props.memberToEdit.id };
+        // console.log(playerToEdit);
+        props.editMember(playerToEdit);
+        // props.setMemberToEdit({});
+      } else {
+        // console.log('new');
+        const newPlayer = { ...player, id: Date.now() };
+        props.addNewPlayer(newPlayer);
+      }
     setPlayer({ name: '', number: '', position: ''});
   };
 
   useEffect(() => {
-    setPlayer({ name: props.memberToEdit.name, number: props.memberToEdit.number, position: props.memberToEdit.position, id: Date.now() })
+    setPlayer({ name: props.memberToEdit.name, number: props.memberToEdit.number, position: props.memberToEdit.position })
   }, [props.memberToEdit]);
 
   return (
@@ -72,7 +92,7 @@ export default function Form(props) {
           onChange={handleChange} 
         />
         <br />
-        <button type='submit'>Add player!</button>
+        <button type='submit'>Add/edit player!</button>
       </StyledForm>
     </div>
   )

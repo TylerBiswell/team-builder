@@ -41,7 +41,7 @@ const CardsWrapper = styled.div`
 export default function Team(props) {
   return (
     <div>
-      <StyledH2>Roster</StyledH2>
+      <StyledH2>Players:</StyledH2>
         <CardsWrapper>
         {props.players.map(player => {
           return (
@@ -49,7 +49,7 @@ export default function Team(props) {
               <h3>#{player.number}</h3>
               <h4>{player.name}</h4>
               <p>{player.position}</p>
-              <button onClick={() => props.editPlayer(player)}>Edit player</button>
+              <button onClick={() => props.selectPlayer(player)}>Edit player</button>
             </PlayerCard>
           )
         })}

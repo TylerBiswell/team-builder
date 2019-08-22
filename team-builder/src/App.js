@@ -32,16 +32,32 @@ function App() {
     setPlayers([ ...players, player ]);
   };
 
-  const editPlayer = (player) => {
+  const selectPlayer = (player) => {
     setMemberToEdit(player);
+        // console.log(player);
+  };
+
+  const editMember = (player) => {
+    console.log(player);
+    console.log(players);
+    const newArray = players.map(element => {
+      if (element.id === player.id) {
+        console.log(player.id);
+        console.log(element);
+        element = { ...player };
+        console.log(element);
+      }
+    });
+    console.log(newArray)
+    // setPlayers(newArray);
   };
 
   return (
     <div className="App">
       <GlobalStyle />
-      <StyledH1>1996-1997 Stanley Cup Champion Detroit Red Wings</StyledH1>
-      <Form addNewPlayer={addNewPlayer} memberToEdit={memberToEdit} />
-      <Team players={players} editPlayer={editPlayer}/>
+      <StyledH1>Detroit Red Wings</StyledH1>
+      <Form addNewPlayer={addNewPlayer} memberToEdit={memberToEdit} editMember={editMember} setMemberToEdit={setMemberToEdit} />
+      <Team players={players} selectPlayer={selectPlayer}/>
     </div>
   );
 }
